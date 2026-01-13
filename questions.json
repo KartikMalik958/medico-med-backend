@@ -1,0 +1,202 @@
+{
+  "flow_order": [
+    "introduction",
+    "demographics",
+    "chief_complaint",
+    "history_of_present_illness",
+    "past_medical_history",
+    "medications",
+    "allergies",
+    "family_history",
+    "social_history",
+    "review_of_systems",
+    "vital_signs",
+    "assessment"
+  ],
+  "questions": [
+    {
+      "id": "intro_1",
+      "category": "introduction",
+      "priority": 1,
+      "question": "Hello! I'm your Medical Assistant. I'll be conducting a structured consultation to better understand your health concerns. This will help me provide you with appropriate guidance. Please note that this is for informational purposes only and does not replace professional medical diagnosis. Are you ready to begin?",
+      "dependencies": []
+    },
+    {
+      "id": "demo_1",
+      "category": "demographics",
+      "priority": 1,
+      "question": "Let's start with some basic information. What is your age?",
+      "dependencies": ["intro_1"]
+    },
+    {
+      "id": "demo_2",
+      "category": "demographics",
+      "priority": 2,
+      "question": "What is your gender? (Male/Female/Other/Prefer not to say)",
+      "dependencies": ["demo_1"]
+    },
+    {
+      "id": "cc_1",
+      "category": "chief_complaint",
+      "priority": 1,
+      "question": "What brings you in today? What is your main concern or reason for this consultation?",
+      "dependencies": ["demo_2"]
+    },
+    {
+      "id": "hpi_1",
+      "category": "history_of_present_illness",
+      "priority": 1,
+      "question": "When did your symptoms first start?",
+      "dependencies": ["cc_1"]
+    },
+    {
+      "id": "hpi_2",
+      "category": "history_of_present_illness",
+      "priority": 2,
+      "question": "Can you describe the nature of your symptoms? (e.g., sharp, dull, throbbing, constant, intermittent)",
+      "dependencies": ["hpi_1"]
+    },
+    {
+      "id": "hpi_3",
+      "category": "history_of_present_illness",
+      "priority": 3,
+      "question": "On a scale of 1 to 10, how would you rate the severity of your symptoms? (1 being mild, 10 being severe)",
+      "dependencies": ["hpi_2"]
+    },
+    {
+      "id": "hpi_4",
+      "category": "history_of_present_illness",
+      "priority": 4,
+      "question": "What makes your symptoms better or worse? (e.g., rest, movement, medication, certain positions)",
+      "dependencies": ["hpi_3"]
+    },
+    {
+      "id": "hpi_5",
+      "category": "history_of_present_illness",
+      "priority": 5,
+      "question": "Have you noticed any associated symptoms? (e.g., fever, nausea, dizziness, fatigue, changes in appetite)",
+      "dependencies": ["hpi_4"]
+    },
+    {
+      "id": "hpi_6",
+      "category": "history_of_present_illness",
+      "priority": 6,
+      "question": "Have you tried any treatments or medications for this condition? If yes, what and did they help?",
+      "dependencies": ["hpi_5"]
+    },
+    {
+      "id": "pmh_1",
+      "category": "past_medical_history",
+      "priority": 1,
+      "question": "Do you have any chronic medical conditions? (e.g., diabetes, hypertension, heart disease, asthma, arthritis)",
+      "dependencies": ["hpi_6"]
+    },
+    {
+      "id": "pmh_2",
+      "category": "past_medical_history",
+      "priority": 2,
+      "question": "Have you had any previous surgeries or hospitalizations? If yes, please describe.",
+      "dependencies": ["pmh_1"]
+    },
+    {
+      "id": "med_1",
+      "category": "medications",
+      "priority": 1,
+      "question": "Are you currently taking any medications? Please list them, including dosages if you know them.",
+      "dependencies": ["pmh_2"]
+    },
+    {
+      "id": "med_2",
+      "category": "medications",
+      "priority": 2,
+      "question": "Are you taking any over-the-counter medications, vitamins, or supplements?",
+      "dependencies": ["med_1"]
+    },
+    {
+      "id": "allergy_1",
+      "category": "allergies",
+      "priority": 1,
+      "question": "Do you have any known allergies? (medications, foods, environmental, etc.)",
+      "dependencies": ["med_2"]
+    },
+    {
+      "id": "fh_1",
+      "category": "family_history",
+      "priority": 1,
+      "question": "Is there a family history of significant medical conditions? (e.g., heart disease, diabetes, cancer, mental health conditions)",
+      "dependencies": ["allergy_1"]
+    },
+    {
+      "id": "sh_1",
+      "category": "social_history",
+      "priority": 1,
+      "question": "Do you smoke, drink alcohol, or use any recreational substances? If yes, please specify frequency and quantity.",
+      "dependencies": ["fh_1"]
+    },
+    {
+      "id": "sh_2",
+      "category": "social_history",
+      "priority": 2,
+      "question": "What is your occupation? Does your work involve any physical demands or exposure to chemicals/substances?",
+      "dependencies": ["sh_1"]
+    },
+    {
+      "id": "ros_1",
+      "category": "review_of_systems",
+      "priority": 1,
+      "question": "Have you experienced any recent changes in your weight (unintended weight loss or gain)?",
+      "dependencies": ["sh_2"]
+    },
+    {
+      "id": "ros_2",
+      "category": "review_of_systems",
+      "priority": 2,
+      "question": "How has your appetite been? Any changes in eating patterns?",
+      "dependencies": ["ros_1"]
+    },
+    {
+      "id": "ros_3",
+      "category": "review_of_systems",
+      "priority": 3,
+      "question": "How is your sleep? Are you experiencing any sleep disturbances?",
+      "dependencies": ["ros_2"]
+    },
+    {
+      "id": "ros_4",
+      "category": "review_of_systems",
+      "priority": 4,
+      "question": "Have you noticed any changes in your energy levels or fatigue?",
+      "dependencies": ["ros_3"]
+    },
+    {
+      "id": "ros_5",
+      "category": "review_of_systems",
+      "priority": 5,
+      "question": "Any recent changes in bowel or bladder habits?",
+      "dependencies": ["ros_4"]
+    },
+    {
+      "id": "vitals_1",
+      "category": "vital_signs",
+      "priority": 1,
+      "question": "If you have access to a thermometer, what is your current body temperature? (If not available, please describe if you feel feverish or have chills)",
+      "dependencies": ["ros_5"]
+    },
+    {
+      "id": "vitals_2",
+      "category": "vital_signs",
+      "priority": 2,
+      "question": "If you have a blood pressure monitor, what is your current blood pressure? (If not available, please describe any symptoms like dizziness or headaches)",
+      "dependencies": ["vitals_1"]
+    },
+    {
+      "id": "assess_1",
+      "category": "assessment",
+      "priority": 1,
+      "question": "Based on the information you've provided, I've completed the consultation. Is there anything else you'd like to add or any other concerns you have?",
+      "dependencies": ["vitals_2"]
+    }
+  ]
+}
+
+
