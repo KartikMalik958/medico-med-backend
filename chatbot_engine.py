@@ -583,7 +583,7 @@ Assistant:"""
                 # Get current_question_text mapping from session state
                 question_text_map = session_state.get("current_question_text", {})
                 
-                    for label, answer in all_answers_by_label.items():
+                for label, answer in all_answers_by_label.items():
                     # Skip if answer is invalid
                     if not answer or not isinstance(answer, str) or not answer.strip():
                         continue
@@ -595,8 +595,8 @@ Assistant:"""
                     
                     if not question_text:
                         # Fallback: get from JSON file
-                            question_data = self.question_flow_engine.questions.get(label)
-                            if question_data:
+                        question_data = self.question_flow_engine.questions.get(label)
+                        if question_data:
                             question_text = question_data.get("question", "").strip()
                     
                     # Validate question text
