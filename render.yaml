@@ -13,6 +13,7 @@ services:
         sync: false
       - key: BACKEND_PORT
         value: $PORT
+      - key: PORT
+        value: $PORT
       - key: ENABLE_QUESTION_FLOW
         value: true
-
